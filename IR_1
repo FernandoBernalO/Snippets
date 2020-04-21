@@ -1,0 +1,1666 @@
+options compress=binary;
+
+LIBNAME dmnomi '/herramientas/SAS/banca/dmnomina/';
+LIBNAME AROTA '/herramientas/SAS/riesgo_consumo/Nomina/lamoreno/rotacion/';
+LIBNAME LDISP '/herramientas/SAS/riesgo_consumo/Nomina/cajarquin/dispersiones';
+LIBNAME EMPRESA '/herramientas/SAS/riesgo_consumo/Nomina/getelles/empresa';
+
+data Casos_Prueba;
+    set LDISP.Dispersiones;
+/*Contador Primer dispersion*/
+IF(	FEC_1DISP	=	'01Jan2012'd	) Then Primer_Disp=	1	;
+IF(	FEC_1DISP	=	'01Feb2012'd	) Then Primer_Disp=	2	;
+IF(	FEC_1DISP	=	'01Mar2012'd	) Then Primer_Disp=	3	;
+IF(	FEC_1DISP	=	'01Apr2012'd	) Then Primer_Disp=	4	;
+IF(	FEC_1DISP	=	'01May2012'd	) Then Primer_Disp=	5	;
+IF(	FEC_1DISP	=	'01Jun2012'd	) Then Primer_Disp=	6	;
+IF(	FEC_1DISP	=	'01Jul2012'd	) Then Primer_Disp=	7	;
+IF(	FEC_1DISP	=	'01Aug2012'd	) Then Primer_Disp=	8	;
+IF(	FEC_1DISP	=	'01Sep2012'd	) Then Primer_Disp=	9	;
+IF(	FEC_1DISP	=	'01Oct2012'd	) Then Primer_Disp=	10	;
+IF(	FEC_1DISP	=	'01Nov2012'd	) Then Primer_Disp=	11	;
+IF(	FEC_1DISP	=	'01Dec2012'd	) Then Primer_Disp=	12	;
+IF(	FEC_1DISP	=	'01Jan2013'd	) Then Primer_Disp=	13	;
+IF(	FEC_1DISP	=	'01Feb2013'd	) Then Primer_Disp=	14	;
+IF(	FEC_1DISP	=	'01Mar2013'd	) Then Primer_Disp=	15	;
+IF(	FEC_1DISP	=	'01Apr2013'd	) Then Primer_Disp=	16	;
+IF(	FEC_1DISP	=	'01May2013'd	) Then Primer_Disp=	17	;
+IF(	FEC_1DISP	=	'01Jun2013'd	) Then Primer_Disp=	18	;
+IF(	FEC_1DISP	=	'01Jul2013'd	) Then Primer_Disp=	19	;
+IF(	FEC_1DISP	=	'01Aug2013'd	) Then Primer_Disp=	20	;
+IF(	FEC_1DISP	=	'01Sep2013'd	) Then Primer_Disp=	21	;
+IF(	FEC_1DISP	=	'01Oct2013'd	) Then Primer_Disp=	22	;
+IF(	FEC_1DISP	=	'01Nov2013'd	) Then Primer_Disp=	23	;
+IF(	FEC_1DISP	=	'01Dec2013'd	) Then Primer_Disp=	24	;
+IF(	FEC_1DISP	=	'01Jan2014'd	) Then Primer_Disp=	25	;
+IF(	FEC_1DISP	=	'01Feb2014'd	) Then Primer_Disp=	26	;
+IF(	FEC_1DISP	=	'01Mar2014'd	) Then Primer_Disp=	27	;
+IF(	FEC_1DISP	=	'01Apr2014'd	) Then Primer_Disp=	28	;
+IF(	FEC_1DISP	=	'01May2014'd	) Then Primer_Disp=	29	;
+IF(	FEC_1DISP	=	'01Jun2014'd	) Then Primer_Disp=	30	;
+IF(	FEC_1DISP	=	'01Jul2014'd	) Then Primer_Disp=	31	;
+IF(	FEC_1DISP	=	'01Aug2014'd	) Then Primer_Disp=	32	;
+IF(	FEC_1DISP	=	'01Sep2014'd	) Then Primer_Disp=	33	;
+IF(	FEC_1DISP	=	'01Oct2014'd	) Then Primer_Disp=	34	;
+IF(	FEC_1DISP	=	'01Nov2014'd	) Then Primer_Disp=	35	;
+IF(	FEC_1DISP	=	'01Dec2014'd	) Then Primer_Disp=	36	;
+IF(	FEC_1DISP	=	'01Jan2015'd	) Then Primer_Disp=	37	;
+IF(	FEC_1DISP	=	'01Feb2015'd	) Then Primer_Disp=	38	;
+IF(	FEC_1DISP	=	'01Mar2015'd	) Then Primer_Disp=	39	;
+IF(	FEC_1DISP	=	'01Apr2015'd	) Then Primer_Disp=	40	;
+IF(	FEC_1DISP	=	'01May2015'd	) Then Primer_Disp=	41	;
+IF(	FEC_1DISP	=	'01Jun2015'd	) Then Primer_Disp=	42	;
+IF(	FEC_1DISP	=	'01Jul2015'd	) Then Primer_Disp=	43	;
+IF(	FEC_1DISP	=	'01Aug2015'd	) Then Primer_Disp=	44	;
+IF(	FEC_1DISP	=	'01Sep2015'd	) Then Primer_Disp=	45	;
+IF(	FEC_1DISP	=	'01Oct2015'd	) Then Primer_Disp=	46	;
+IF(	FEC_1DISP	=	'01Nov2015'd	) Then Primer_Disp=	47	;
+IF(	FEC_1DISP	=	'01Dec2015'd	) Then Primer_Disp=	48	;
+IF(	FEC_1DISP	=	'01Jan2016'd	) Then Primer_Disp=	49	;
+IF(	FEC_1DISP	=	'01Feb2016'd	) Then Primer_Disp=	50	;
+IF(	FEC_1DISP	=	'01Mar2016'd	) Then Primer_Disp=	51	;
+IF(	FEC_1DISP	=	'01Apr2016'd	) Then Primer_Disp=	52	;
+IF(	FEC_1DISP	=	'01May2016'd	) Then Primer_Disp=	53	;
+IF(	FEC_1DISP	=	'01Jun2016'd	) Then Primer_Disp=	54	;
+IF(	FEC_1DISP	=	'01Jul2016'd	) Then Primer_Disp=	55	;
+IF(	FEC_1DISP	=	'01Aug2016'd	) Then Primer_Disp=	56	;
+IF(	FEC_1DISP	=	'01Sep2016'd	) Then Primer_Disp=	57	;
+IF(	FEC_1DISP	=	'01Oct2016'd	) Then Primer_Disp=	58	;
+IF(	FEC_1DISP	=	'01Nov2016'd	) Then Primer_Disp=	59	;
+IF(	FEC_1DISP	=	'01Dec2016'd	) Then Primer_Disp=	60	;
+IF(	FEC_1DISP	=	'01Jan2017'd	) Then Primer_Disp=	61	;
+IF(	FEC_1DISP	=	'01Feb2017'd	) Then Primer_Disp=	62	;
+IF(	FEC_1DISP	=	'01Mar2017'd	) Then Primer_Disp=	63	;
+IF(	FEC_1DISP	=	'01Apr2017'd	) Then Primer_Disp=	64	;
+IF(	FEC_1DISP	=	'01May2017'd	) Then Primer_Disp=	65	;
+IF(	FEC_1DISP	=	'01Jun2017'd	) Then Primer_Disp=	66	;
+IF(	FEC_1DISP	=	'01Jul2017'd	) Then Primer_Disp=	67	;
+IF(	FEC_1DISP	=	'01Aug2017'd	) Then Primer_Disp=	68	;
+IF(	FEC_1DISP	=	'01Sep2017'd	) Then Primer_Disp=	69	;
+IF(	FEC_1DISP	=	'01Oct2017'd	) Then Primer_Disp=	70	;
+IF(	FEC_1DISP	=	'01Nov2017'd	) Then Primer_Disp=	71	;
+IF(	FEC_1DISP	=	'01Dec2017'd	) Then Primer_Disp=	72	;
+IF(	FEC_1DISP	=	'01Jan2018'd	) Then Primer_Disp=	73	;
+IF(	FEC_1DISP	=	'01Feb2018'd	) Then Primer_Disp=	74	;
+IF(	FEC_1DISP	=	'01Mar2018'd	) Then Primer_Disp=	75	;
+IF(	FEC_1DISP	=	'01Apr2018'd	) Then Primer_Disp=	76	;
+IF(	FEC_1DISP	=	'01May2018'd	) Then Primer_Disp=	77	;
+IF(	FEC_1DISP	=	'01Jun2018'd	) Then Primer_Disp=	78	;
+IF(	FEC_1DISP	=	'01Jul2018'd	) Then Primer_Disp=	79	;
+IF(	FEC_1DISP	=	'01Aug2018'd	) Then Primer_Disp=	80	;
+IF(	FEC_1DISP	=	'01Sep2018'd	) Then Primer_Disp=	81	;
+IF(	FEC_1DISP	=	'01Oct2018'd	) Then Primer_Disp=	82	;
+IF(	FEC_1DISP	=	'01Nov2018'd	) Then Primer_Disp=	83	;
+IF(	FEC_1DISP	=	'01Dec2018'd	) Then Primer_Disp=	84	;
+IF(	FEC_1DISP	=	'01Jan2019'd	) Then Primer_Disp=	85	;
+IF(	FEC_1DISP	=	'01Feb2019'd	) Then Primer_Disp=	86	;
+IF(	FEC_1DISP	=	'01Mar2019'd	) Then Primer_Disp=	87	;
+IF(	FEC_1DISP	=	'01Apr2019'd	) Then Primer_Disp=	88	;
+IF(	FEC_1DISP	=	'01May2019'd	) Then Primer_Disp=	89	;
+IF(	FEC_1DISP	=	'01Jun2019'd	) Then Primer_Disp=	90	;
+IF(	FEC_1DISP	=	'01Jul2019'd	) Then Primer_Disp=	91  ;
+IF(	FEC_1DISP	=	'01aug2019'd	) Then Primer_Disp=	92  ;
+IF(	FEC_1DISP	=	'01sep2019'd	) Then Primer_Disp=	93  ;
+IF(	FEC_1DISP	=	'01oct2019'd	) Then Primer_Disp=	94  ;
+IF(	FEC_1DISP	=	'01nov2019'd	) Then Primer_Disp=	95  ;
+IF(	FEC_1DISP	=	'01dec2019'd	) Then Primer_Disp=	96  ;
+IF(	FEC_1DISP	=	'01jan2020'd	) Then Primer_Disp=	97  ;
+IF(	FEC_1DISP	=	'01feb2020'd	) Then Primer_Disp=	98  ;
+
+/*Contador Ultima dispersion*/
+IF(	FEC_ULT_DISP	=	'01Jan2012'd	) Then Ultima_Disp=	1	;
+IF(	FEC_ULT_DISP	=	'01Feb2012'd	) Then Ultima_Disp=	2	;
+IF(	FEC_ULT_DISP	=	'01Mar2012'd	) Then Ultima_Disp=	3	;
+IF(	FEC_ULT_DISP	=	'01Apr2012'd	) Then Ultima_Disp=	4	;
+IF(	FEC_ULT_DISP	=	'01May2012'd	) Then Ultima_Disp=	5	;
+IF(	FEC_ULT_DISP	=	'01Jun2012'd	) Then Ultima_Disp=	6	;
+IF(	FEC_ULT_DISP	=	'01Jul2012'd	) Then Ultima_Disp=	7	;
+IF(	FEC_ULT_DISP	=	'01Aug2012'd	) Then Ultima_Disp=	8	;
+IF(	FEC_ULT_DISP	=	'01Sep2012'd	) Then Ultima_Disp=	9	;
+IF(	FEC_ULT_DISP	=	'01Oct2012'd	) Then Ultima_Disp=	10	;
+IF(	FEC_ULT_DISP	=	'01Nov2012'd	) Then Ultima_Disp=	11	;
+IF(	FEC_ULT_DISP	=	'01Dec2012'd	) Then Ultima_Disp=	12	;
+IF(	FEC_ULT_DISP	=	'01Jan2013'd	) Then Ultima_Disp=	13	;
+IF(	FEC_ULT_DISP	=	'01Feb2013'd	) Then Ultima_Disp=	14	;
+IF(	FEC_ULT_DISP	=	'01Mar2013'd	) Then Ultima_Disp=	15	;
+IF(	FEC_ULT_DISP	=	'01Apr2013'd	) Then Ultima_Disp=	16	;
+IF(	FEC_ULT_DISP	=	'01May2013'd	) Then Ultima_Disp=	17	;
+IF(	FEC_ULT_DISP	=	'01Jun2013'd	) Then Ultima_Disp=	18	;
+IF(	FEC_ULT_DISP	=	'01Jul2013'd	) Then Ultima_Disp=	19	;
+IF(	FEC_ULT_DISP	=	'01Aug2013'd	) Then Ultima_Disp=	20	;
+IF(	FEC_ULT_DISP	=	'01Sep2013'd	) Then Ultima_Disp=	21	;
+IF(	FEC_ULT_DISP	=	'01Oct2013'd	) Then Ultima_Disp=	22	;
+IF(	FEC_ULT_DISP	=	'01Nov2013'd	) Then Ultima_Disp=	23	;
+IF(	FEC_ULT_DISP	=	'01Dec2013'd	) Then Ultima_Disp=	24	;
+IF(	FEC_ULT_DISP	=	'01Jan2014'd	) Then Ultima_Disp=	25	;
+IF(	FEC_ULT_DISP	=	'01Feb2014'd	) Then Ultima_Disp=	26	;
+IF(	FEC_ULT_DISP	=	'01Mar2014'd	) Then Ultima_Disp=	27	;
+IF(	FEC_ULT_DISP	=	'01Apr2014'd	) Then Ultima_Disp=	28	;
+IF(	FEC_ULT_DISP	=	'01May2014'd	) Then Ultima_Disp=	29	;
+IF(	FEC_ULT_DISP	=	'01Jun2014'd	) Then Ultima_Disp=	30	;
+IF(	FEC_ULT_DISP	=	'01Jul2014'd	) Then Ultima_Disp=	31	;
+IF(	FEC_ULT_DISP	=	'01Aug2014'd	) Then Ultima_Disp=	32	;
+IF(	FEC_ULT_DISP	=	'01Sep2014'd	) Then Ultima_Disp=	33	;
+IF(	FEC_ULT_DISP	=	'01Oct2014'd	) Then Ultima_Disp=	34	;
+IF(	FEC_ULT_DISP	=	'01Nov2014'd	) Then Ultima_Disp=	35	;
+IF(	FEC_ULT_DISP	=	'01Dec2014'd	) Then Ultima_Disp=	36	;
+IF(	FEC_ULT_DISP	=	'01Jan2015'd	) Then Ultima_Disp=	37	;
+IF(	FEC_ULT_DISP	=	'01Feb2015'd	) Then Ultima_Disp=	38	;
+IF(	FEC_ULT_DISP	=	'01Mar2015'd	) Then Ultima_Disp=	39	;
+IF(	FEC_ULT_DISP	=	'01Apr2015'd	) Then Ultima_Disp=	40	;
+IF(	FEC_ULT_DISP	=	'01May2015'd	) Then Ultima_Disp=	41	;
+IF(	FEC_ULT_DISP	=	'01Jun2015'd	) Then Ultima_Disp=	42	;
+IF(	FEC_ULT_DISP	=	'01Jul2015'd	) Then Ultima_Disp=	43	;
+IF(	FEC_ULT_DISP	=	'01Aug2015'd	) Then Ultima_Disp=	44	;
+IF(	FEC_ULT_DISP	=	'01Sep2015'd	) Then Ultima_Disp=	45	;
+IF(	FEC_ULT_DISP	=	'01Oct2015'd	) Then Ultima_Disp=	46	;
+IF(	FEC_ULT_DISP	=	'01Nov2015'd	) Then Ultima_Disp=	47	;
+IF(	FEC_ULT_DISP	=	'01Dec2015'd	) Then Ultima_Disp=	48	;
+IF(	FEC_ULT_DISP	=	'01Jan2016'd	) Then Ultima_Disp=	49	;
+IF(	FEC_ULT_DISP	=	'01Feb2016'd	) Then Ultima_Disp=	50	;
+IF(	FEC_ULT_DISP	=	'01Mar2016'd	) Then Ultima_Disp=	51	;
+IF(	FEC_ULT_DISP	=	'01Apr2016'd	) Then Ultima_Disp=	52	;
+IF(	FEC_ULT_DISP	=	'01May2016'd	) Then Ultima_Disp=	53	;
+IF(	FEC_ULT_DISP	=	'01Jun2016'd	) Then Ultima_Disp=	54	;
+IF(	FEC_ULT_DISP	=	'01Jul2016'd	) Then Ultima_Disp=	55	;
+IF(	FEC_ULT_DISP	=	'01Aug2016'd	) Then Ultima_Disp=	56	;
+IF(	FEC_ULT_DISP	=	'01Sep2016'd	) Then Ultima_Disp=	57	;
+IF(	FEC_ULT_DISP	=	'01Oct2016'd	) Then Ultima_Disp=	58	;
+IF(	FEC_ULT_DISP	=	'01Nov2016'd	) Then Ultima_Disp=	59	;
+IF(	FEC_ULT_DISP	=	'01Dec2016'd	) Then Ultima_Disp=	60	;
+IF(	FEC_ULT_DISP	=	'01Jan2017'd	) Then Ultima_Disp=	61	;
+IF(	FEC_ULT_DISP	=	'01Feb2017'd	) Then Ultima_Disp=	62	;
+IF(	FEC_ULT_DISP	=	'01Mar2017'd	) Then Ultima_Disp=	63	;
+IF(	FEC_ULT_DISP	=	'01Apr2017'd	) Then Ultima_Disp=	64	;
+IF(	FEC_ULT_DISP	=	'01May2017'd	) Then Ultima_Disp=	65	;
+IF(	FEC_ULT_DISP	=	'01Jun2017'd	) Then Ultima_Disp=	66	;
+IF(	FEC_ULT_DISP	=	'01Jul2017'd	) Then Ultima_Disp=	67 ;
+IF(	FEC_ULT_DISP	=	'01Aug2017'd	) Then Ultima_Disp=	68 ;
+IF(	FEC_ULT_DISP	=	'01Sep2017'd	) Then Ultima_Disp=	69 ;
+IF(	FEC_ULT_DISP	=	'01Oct2017'd	) Then Ultima_Disp=	70 ;
+IF(	FEC_ULT_DISP	=	'01Nov2017'd	) Then Ultima_Disp=	71 ;
+IF(	FEC_ULT_DISP	=	'01Dec2017'd	) Then Ultima_Disp=	72 ;
+IF(	FEC_ULT_DISP	=	'01Jan2018'd	) Then Ultima_Disp=	73 ;
+IF(	FEC_ULT_DISP	=	'01Feb2018'd	) Then Ultima_Disp=	74 ;
+IF(	FEC_ULT_DISP	=	'01Mar2018'd	) Then Ultima_Disp=	75 ;
+IF(	FEC_ULT_DISP	=	'01Apr2018'd	) Then Ultima_Disp=	76 ;
+IF(	FEC_ULT_DISP	=	'01May2018'd	) Then Ultima_Disp=	77 ;
+IF(	FEC_ULT_DISP	=	'01Jun2018'd	) Then Ultima_Disp=	78 ;
+IF(	FEC_ULT_DISP	=	'01Jul2018'd	) Then Ultima_Disp=	79 ;
+IF(	FEC_ULT_DISP	=	'01Aug2018'd	) Then Ultima_Disp=	80 ;
+IF(	FEC_ULT_DISP	=	'01Sep2018'd	) Then Ultima_Disp=	81 ;
+IF(	FEC_ULT_DISP	=	'01Oct2018'd	) Then Ultima_Disp=	82 ;
+IF(	FEC_ULT_DISP	=	'01Nov2018'd	) Then Ultima_Disp=	83 ;
+IF(	FEC_ULT_DISP	=	'01Dec2018'd	) Then Ultima_Disp=	84 ;
+IF(	FEC_ULT_DISP	=	'01Jan2019'd	) Then Ultima_Disp=	85 ;
+IF(	FEC_ULT_DISP	=	'01Feb2019'd	) Then Ultima_Disp=	86 ;
+IF(	FEC_ULT_DISP	=	'01Mar2019'd	) Then Ultima_Disp=	87 ;
+IF(	FEC_ULT_DISP	=	'01Apr2019'd	) Then Ultima_Disp=	88 ;
+IF(	FEC_ULT_DISP	=	'01May2019'd	) Then Ultima_Disp=	89 ;
+IF(	FEC_ULT_DISP	=	'01Jun2019'd	) Then Ultima_Disp=	90 ;
+IF(	FEC_ULT_DISP	=	'01Jul2019'd	) Then Ultima_Disp=	91 ;
+IF(	FEC_ULT_DISP	=	'01aug2019'd	) Then Ultima_Disp=	92 ;
+IF(	FEC_ULT_DISP	=	'01sep2019'd	) Then Ultima_Disp=	93 ;
+IF(	FEC_ULT_DISP	=	'01oct2019'd	) Then Ultima_Disp=	94 ;
+IF(	FEC_ULT_DISP	=	'01nov2019'd	) Then Ultima_Disp=	95 ;
+IF(	FEC_ULT_DISP	=	'01dec2019'd	) Then Ultima_Disp=	96 ;
+IF(	FEC_ULT_DISP	=	'01jan2020'd	) Then Ultima_Disp=	97 ;
+IF(	FEC_ULT_DISP	=	'01feb2020'd	) Then Ultima_Disp=	98 ;
+IF(	FEC_ULT_DISP	=	'01mar2020'd	) Then Ultima_Disp=	99 ;
+
+
+Run;
+
+
+DATA Casos_Prueba; 
+SET Casos_Prueba; 
+P1=	1	;
+P2=	2	;
+P3=	3	;
+P4=	4	;
+P5=	5	;
+P6=	6	;
+P7=	7	;
+P8=	8	;
+P9=	9	;
+P10=	10	;
+P11=	11	;
+P12=	12	;
+P13=	13	;
+P14=	14	;
+P15=	15	;
+P16=	16	;
+P17=	17	;
+P18=	18	;
+P19=	19	;
+P20=	20	;
+P21=	21	;
+P22=	22	;
+P23=	23	;
+P24=	24	;
+P25=	25	;
+P26=	26	;
+P27=	27	;
+P28=	28	;
+P29=	29	;
+P30=	30	;
+P31=	31	;
+P32=	32	;
+P33=	33	;
+P34=	34	;
+P35=	35	;
+P36=	36	;
+P37=	37	;
+P38=	38	;
+P39=	39	;
+P40=	40	;
+P41=	41	;
+P42=	42	;
+P43=	43	;
+P44=	44	;
+P45=	45	;
+P46=	46	;
+P47=	47	;
+P48=	48	;
+P49=	49	;
+P50=	50	;
+P51=	51	;
+P52=	52	;
+P53=	53	;
+P54=	54	;
+P55=	55	;
+P56=	56	;
+P57=	57	;
+P58=	58	;
+P59=	59	;
+P60=	60	;
+P61=	61	;
+P62=	62	;
+P63=	63	;
+P64=	64	;
+P65=	65	;
+P66=	66	;
+P67=	67	;
+P68=	68	;
+P69=	69	;
+P70=	70	;
+P71=	71	;
+P72=	72	;
+P73=	73	;
+P74=	74	;
+P75=	75	;
+P76=	76	;
+P77=	77	;
+P78=	78	;
+P79=	79	;
+P80=	80	;
+P81=	81	;
+P82=	82	;
+P83=	83  ;
+P84=	84	;
+P85=	85	;
+P86=	86	;
+P87=	87	;
+P88=	88	;
+P89=	89	;
+P90=	90	;
+P91=	91	;
+P92=	92	;
+P93=	93	;
+P94=	94	;
+P95=	95	;
+P96=	96	;
+P97=	97	;
+P98=	98	;
+P99=	99	;
+
+RUN;
+
+DATA Casos_Prueba; 
+SET Casos_Prueba; 
+/*Format CLASIF_CLIENTE_&i $20.;*/
+ARRAY orig P1--P99;
+ARRAY perc E1 - E99;
+DO I=1 TO 99;
+DO over perc;
+/*Clasificación para los que nunca tuvieron crédito*/
+				
+        IF orig<Primer_Disp THEN perc=0; /*NO DISPERSASTE*/
+            else IF Primer_Disp<=orig<=Ultima_Disp THEN perc=1; /*DISPERSASTE*/
+                 else IF orig>Ultima_Disp THEN perc=0; /*NO DISPERSASTE*/
+end;  
+end;
+RUN;
+%put _user_;
+
+data Casos_Prueba_;
+   set Casos_Prueba;
+If (E1=1  and E6=1)  Then F1=1;  else F1=0; 
+If (E2=1  and E7=1)  Then F2=1;  else F2=0;
+If (E3=1  and E8=1)  Then F3=1;  else F3=0;
+If (E4=1  and E9=1)  Then F4=1;  else F4=0;
+If (E5=1  and E10=1) Then F5=1;  else F5=0;
+If (E6=1  and E11=1) Then F6=1;  else F6=0;
+If (E7=1  and E12=1) Then F7=1;  else F7=0;
+If (E8=1  and E13=1) Then F8=1;  else F8=0;
+If (E9=1  and E14=1) Then F9=1;  else F9=0;
+If (E10=1 and E15=1) Then F10=1; else F10=0;
+If (E11=1 and E16=1) Then F11=1; else F11=0;
+If (E12=1 and E17=1) Then F12=1; else F12=0;
+If (E13=1 and E18=1) Then F13=1; else F13=0;
+If (E14=1 and E19=1) Then F14=1; else F14=0;
+If (E15=1 and E20=1) Then F15=1; else F15=0;
+If (E16=1 and E21=1) Then F16=1; else F16=0;
+If (E17=1 and E22=1) Then F17=1; else F17=0;
+If (E18=1 and E23=1) Then F18=1; else F18=0;
+If (E19=1 and E24=1) Then F19=1; else F19=0;
+If (E20=1 and E25=1) Then F20=1; else F20=0;
+If (E21=1 and E26=1) Then F21=1; else F21=0;
+If (E22=1 and E27=1) Then F22=1; else F22=0;
+If (E23=1 and E28=1) Then F23=1; else F23=0;
+If (E24=1 and E29=1) Then F24=1; else F24=0;
+If (E25=1 and E30=1) Then F25=1; else F25=0;
+If (E26=1 and E31=1) Then F26=1; else F26=0;
+If (E27=1 and E32=1) Then F27=1; else F27=0;
+If (E28=1 and E33=1) Then F28=1; else F28=0;
+If (E29=1 and E34=1) Then F29=1; else F29=0;
+If (E30=1 and E35=1) Then F30=1; else F30=0;
+If (E31=1 and E36=1) Then F31=1; else F31=0;
+If (E32=1 and E37=1) Then F32=1; else F32=0;
+If (E33=1 and E38=1) Then F33=1; else F33=0;
+If (E34=1 and E39=1) Then F34=1; else F34=0;
+If (E35=1 and E40=1) Then F35=1; else F35=0;
+If (E36=1 and E41=1) Then F36=1; else F36=0;
+If (E37=1 and E42=1) Then F37=1; else F37=0;
+If (E38=1 and E43=1) Then F38=1; else F38=0;
+If (E39=1 and E44=1) Then F39=1; else F39=0;
+If (E40=1 and E45=1) Then F40=1; else F40=0;
+If (E41=1 and E46=1) Then F41=1; else F41=0;
+If (E42=1 and E47=1) Then F42=1; else F42=0;
+If (E43=1 and E48=1) Then F43=1; else F43=0;
+If (E44=1 and E49=1) Then F44=1; else F44=0;
+If (E45=1 and E50=1) Then F45=1; else F45=0;
+If (E46=1 and E51=1) Then F46=1; else F46=0;
+If (E47=1 and E52=1) Then F47=1; else F47=0;
+If (E48=1 and E53=1) Then F48=1; else F48=0;
+If (E49=1 and E54=1) Then F49=1; else F49=0;
+If (E50=1 and E55=1) Then F50=1; else F50=0;
+If (E51=1 and E56=1) Then F51=1; else F51=0;
+If (E52=1 and E57=1) Then F52=1; else F52=0;
+If (E53=1 and E58=1) Then F53=1; else F53=0;
+If (E54=1 and E59=1) Then F54=1; else F54=0;
+If (E55=1 and E60=1) Then F55=1; else F55=0;
+If (E56=1 and E61=1) Then F56=1; else F56=0;
+If (E57=1 and E62=1) Then F57=1; else F57=0;
+If (E58=1 and E63=1) Then F58=1; else F58=0;
+If (E59=1 and E64=1) Then F59=1; else F59=0;
+If (E60=1 and E65=1) Then F60=1; else F60=0;
+If (E61=1 and E66=1) Then F61=1; else F61=0;
+If (E62=1 and E67=1) Then F62=1; else F62=0;
+If (E63=1 and E68=1) Then F63=1; else F63=0;
+If (E64=1 and E69=1) Then F64=1; else F64=0;
+If (E65=1 and E70=1) Then F65=1; else F65=0;
+If (E66=1 and E71=1) Then F66=1; else F66=0;
+If (E67=1 and E72=1) Then F67=1; else F67=0;
+If (E68=1 and E73=1) Then F68=1; else F68=0;
+If (E69=1 and E74=1) Then F69=1; else F69=0;
+If (E70=1 and E75=1) Then F70=1; else F70=0;
+If (E71=1 and E76=1) Then F71=1; else F71=0;
+If (E72=1 and E77=1) Then F72=1; else F72=0;
+If (E73=1 and E78=1) Then F73=1; else F73=0;
+If (E74=1 and E79=1) Then F74=1; else F74=0;
+If (E75=1 and E80=1) Then F75=1; else F75=0;
+If (E76=1 and E81=1) Then F76=1; else F76=0;
+If (E77=1 and E82=1) Then F77=1; else F77=0;
+If (E78=1 and E83=1) Then F78=1; else F78=0;
+If (E79=1 and E84=1) Then F79=1; else F79=0;
+If (E80=1 and E85=1) Then F80=1; else F80=0;
+If (E81=1 and E86=1) Then F81=1; else F81=0;
+If (E82=1 and E87=1) Then F82=1; else F82=0;
+If (E83=1 and E88=1) Then F83=1; else F83=0;
+If (E84=1 and E89=1) Then F84=1; else F84=0;
+If (E85=1 and E90=1) Then F85=1; else F85=0;
+If (E86=1 and E91=1) Then F86=1; else F86=0;
+If (E87=1 and E92=1) Then F87=1; else F87=0;
+If (E88=1 and E93=1) Then F88=1; else F88=0;
+If (E89=1 and E94=1) Then F89=1; else F89=0;
+If (E90=1 and E95=1) Then F90=1; else F90=0;
+If (E91=1 and E96=1) Then F91=1; else F91=0;
+If (E92=1 and E97=1) Then F92=1; else F92=0;
+If (E93=1 and E98=1) Then F93=1; else F93=0;
+If (E94=1 and E99=1) Then F94=1; else F99=0;
+
+Run;
+
+data Casos_Prueba_;
+    set Casos_Prueba_;
+/*Si disperso los primeros 6 meses y despúes aguanto otros 6 meses dispersando*/
+if(E1=1 and E12=1) Then G1=1; else G1=0;
+if(E2=1 and E13=1) Then G2=1; else G2=0;
+if(E3=1 and E14=1) Then G3=1; else G3=0;
+if(E4=1 and E15=1) Then G4=1; else G4=0;
+if(E5=1 and E16=1) Then G5=1; else G5=0;
+if(E6=1 and E17=1) Then G6=1; else G6=0;
+if(E7=1 and E18=1) Then G7=1; else G7=0;
+if(E8=1 and E19=1) Then G8=1; else G8=0;
+if(E9=1 and E20=1) Then G9=1; else G9=0;
+if(E10=1 and E21=1) Then G10=1; else G10=0;
+if(E11=1 and E22=1) Then G11=1; else G11=0;
+if(E12=1 and E23=1) Then G12=1; else G12=0;
+if(E13=1 and E24=1) Then G13=1; else G13=0;
+if(E14=1 and E25=1) Then G14=1; else G14=0;
+if(E15=1 and E26=1) Then G15=1; else G15=0;
+if(E16=1 and E27=1) Then G16=1; else G16=0;
+if(E17=1 and E28=1) Then G17=1; else G17=0;
+if(E18=1 and E29=1) Then G18=1; else G18=0;
+if(E19=1 and E30=1) Then G19=1; else G19=0;
+if(E20=1 and E31=1) Then G20=1; else G20=0;
+if(E21=1 and E32=1) Then G21=1; else G21=0;
+if(E22=1 and E33=1) Then G22=1; else G22=0;
+if(E23=1 and E34=1) Then G23=1; else G23=0;
+if(E24=1 and E35=1) Then G24=1; else G24=0;
+if(E25=1 and E36=1) Then G25=1; else G25=0;
+if(E26=1 and E37=1) Then G26=1; else G26=0;
+if(E27=1 and E38=1) Then G27=1; else G27=0;
+if(E28=1 and E39=1) Then G28=1; else G28=0;
+if(E29=1 and E40=1) Then G29=1; else G29=0;
+if(E30=1 and E41=1) Then G30=1; else G30=0;
+if(E31=1 and E42=1) Then G31=1; else G31=0;
+if(E32=1 and E43=1) Then G32=1; else G32=0;
+if(E33=1 and E44=1) Then G33=1; else G33=0;
+if(E34=1 and E45=1) Then G34=1; else G34=0;
+if(E35=1 and E46=1) Then G35=1; else G35=0;
+if(E36=1 and E47=1) Then G36=1; else G36=0;
+if(E37=1 and E48=1) Then G37=1; else G37=0;
+if(E38=1 and E49=1) Then G38=1; else G38=0;
+if(E39=1 and E50=1) Then G39=1; else G39=0;
+if(E40=1 and E51=1) Then G40=1; else G40=0;
+if(E41=1 and E52=1) Then G41=1; else G41=0;
+if(E42=1 and E53=1) Then G42=1; else G42=0;
+if(E43=1 and E54=1) Then G43=1; else G43=0;
+if(E44=1 and E55=1) Then G44=1; else G44=0;
+if(E45=1 and E56=1) Then G45=1; else G45=0;
+if(E46=1 and E57=1) Then G46=1; else G46=0;
+if(E47=1 and E58=1) Then G47=1; else G47=0;
+if(E48=1 and E59=1) Then G48=1; else G48=0;
+if(E49=1 and E60=1) Then G49=1; else G49=0;
+if(E50=1 and E61=1) Then G50=1; else G50=0;
+if(E51=1 and E62=1) Then G51=1; else G51=0;
+if(E52=1 and E63=1) Then G52=1; else G52=0;
+if(E53=1 and E64=1) Then G53=1; else G53=0;
+if(E54=1 and E65=1) Then G54=1; else G54=0;
+if(E55=1 and E66=1) Then G55=1; else G55=0;
+if(E56=1 and E67=1) Then G56=1; else G56=0;
+if(E57=1 and E68=1) Then G57=1; else G57=0;
+if(E58=1 and E69=1) Then G58=1; else G58=0;
+if(E59=1 and E70=1) Then G59=1; else G59=0;
+if(E60=1 and E71=1) Then G60=1; else G60=0;
+if(E61=1 and E72=1) Then G61=1; else G61=0;
+if(E62=1 and E73=1) Then G62=1; else G62=0;
+if(E63=1 and E74=1) Then G63=1; else G63=0;
+if(E64=1 and E75=1) Then G64=1; else G64=0;
+if(E65=1 and E76=1) Then G65=1; else G65=0;
+if(E66=1 and E77=1) Then G66=1; else G66=0;
+if(E67=1 and E78=1) Then G67=1; else G67=0;
+if(E68=1 and E79=1) Then G68=1; else G68=0;
+if(E69=1 and E80=1) Then G69=1; else G69=0;
+if(E70=1 and E81=1) Then G70=1; else G70=0;
+if(E71=1 and E82=1) Then G71=1; else G71=0;
+if(E72=1 and E83=1) Then G72=1; else G72=0;
+if(E73=1 and E84=1) Then G73=1; else G73=0;
+if(E74=1 and E85=1) Then G74=1; else G74=0;
+if(E75=1 and E86=1) Then G75=1; else G75=0;
+if(E76=1 and E87=1) Then G76=1; else G76=0;
+if(E77=1 and E88=1) Then G77=1; else G77=0;
+if(E78=1 and E89=1) Then G78=1; else G78=0;
+if(E79=1 and E90=1) Then G79=1; else G79=0;
+if(E80=1 and E91=1) Then G80=1; else G80=0;
+if(E81=1 and E92=1) Then G81=1; else G81=0;
+if(E82=1 and E93=1) Then G82=1; else G82=0;
+if(E83=1 and E94=1) Then G83=1; else G83=0;
+if(E84=1 and E95=1) Then G84=1; else G84=0;
+if(E85=1 and E96=1) Then G85=1; else G85=0;
+if(E86=1 and E97=1) Then G86=1; else G86=0;
+if(E87=1 and E98=1) Then G87=1; else G87=0;
+if(E88=1 and E99=1) Then G88=1; else G88=0;
+
+/*Si disperso los primeros 6 meses y despúes aguanto otros 12 meses dispersando*/
+
+if(E1=1 and E18=1) Then H1=1; else H1=0;
+if(E2=1 and E19=1) Then H2=1; else H2=0;
+if(E3=1 and E20=1) Then H3=1; else H3=0;
+if(E4=1 and E21=1) Then H4=1; else H4=0;
+if(E5=1 and E22=1) Then H5=1; else H5=0;
+if(E6=1 and E23=1) Then H6=1; else H6=0;
+if(E7=1 and E24=1) Then H7=1; else H7=0;
+if(E8=1 and E25=1) Then H8=1; else H8=0;
+if(E9=1 and E26=1) Then H9=1; else H9=0;
+if(E10=1 and E27=1) Then H10=1; else H10=0;
+if(E11=1 and E28=1) Then H11=1; else H11=0;
+if(E12=1 and E29=1) Then H12=1; else H12=0;
+if(E13=1 and E30=1) Then H13=1; else H13=0;
+if(E14=1 and E31=1) Then H14=1; else H14=0;
+if(E15=1 and E32=1) Then H15=1; else H15=0;
+if(E16=1 and E33=1) Then H16=1; else H16=0;
+if(E17=1 and E34=1) Then H17=1; else H17=0;
+if(E18=1 and E35=1) Then H18=1; else H18=0;
+if(E19=1 and E36=1) Then H19=1; else H19=0;
+if(E20=1 and E37=1) Then H20=1; else H20=0;
+if(E21=1 and E38=1) Then H21=1; else H21=0;
+if(E22=1 and E39=1) Then H22=1; else H22=0;
+if(E23=1 and E40=1) Then H23=1; else H23=0;
+if(E24=1 and E41=1) Then H24=1; else H24=0;
+if(E25=1 and E42=1) Then H25=1; else H25=0;
+if(E26=1 and E43=1) Then H26=1; else H26=0;
+if(E27=1 and E44=1) Then H27=1; else H27=0;
+if(E28=1 and E45=1) Then H28=1; else H28=0;
+if(E29=1 and E46=1) Then H29=1; else H29=0;
+if(E30=1 and E47=1) Then H30=1; else H30=0;
+if(E31=1 and E48=1) Then H31=1; else H31=0;
+if(E32=1 and E49=1) Then H32=1; else H32=0;
+if(E33=1 and E50=1) Then H33=1; else H33=0;
+if(E34=1 and E51=1) Then H34=1; else H34=0;
+if(E35=1 and E52=1) Then H35=1; else H35=0;
+if(E36=1 and E53=1) Then H36=1; else H36=0;
+if(E37=1 and E54=1) Then H37=1; else H37=0;
+if(E38=1 and E55=1) Then H38=1; else H38=0;
+if(E39=1 and E56=1) Then H39=1; else H39=0;
+if(E40=1 and E57=1) Then H40=1; else H40=0;
+if(E41=1 and E58=1) Then H41=1; else H41=0;
+if(E42=1 and E59=1) Then H42=1; else H42=0;
+if(E43=1 and E60=1) Then H43=1; else H43=0;
+if(E44=1 and E61=1) Then H44=1; else H44=0;
+if(E45=1 and E62=1) Then H45=1; else H45=0;
+if(E46=1 and E63=1) Then H46=1; else H46=0;
+if(E47=1 and E64=1) Then H47=1; else H47=0;
+if(E48=1 and E65=1) Then H48=1; else H48=0;
+if(E49=1 and E66=1) Then H49=1; else H49=0;
+if(E50=1 and E67=1) Then H50=1; else H50=0;
+if(E51=1 and E68=1) Then H51=1; else H51=0;
+if(E52=1 and E69=1) Then H52=1; else H52=0;
+if(E53=1 and E70=1) Then H53=1; else H53=0;
+if(E54=1 and E71=1) Then H54=1; else H54=0;
+if(E55=1 and E72=1) Then H55=1; else H55=0;
+if(E56=1 and E73=1) Then H56=1; else H56=0;
+if(E57=1 and E74=1) Then H57=1; else H57=0;
+if(E58=1 and E75=1) Then H58=1; else H58=0;
+if(E59=1 and E76=1) Then H59=1; else H59=0;
+if(E60=1 and E77=1) Then H60=1; else H60=0;
+if(E61=1 and E78=1) Then H61=1; else H61=0;
+if(E62=1 and E79=1) Then H62=1; else H62=0;
+if(E63=1 and E80=1) Then H63=1; else H63=0;
+if(E64=1 and E81=1) Then H64=1; else H64=0;
+if(E65=1 and E82=1) Then H65=1; else H65=0;
+if(E66=1 and E83=1) Then H66=1; else H66=0;
+if(E67=1 and E84=1) Then H67=1; else H67=0;
+if(E68=1 and E85=1) Then H68=1; else H68=0;
+if(E69=1 and E86=1) Then H69=1; else H69=0;
+if(E70=1 and E87=1) Then H70=1; else H70=0;
+if(E71=1 and E88=1) Then H71=1; else H71=0;
+if(E72=1 and E89=1) Then H72=1; else H72=0;
+if(E73=1 and E90=1) Then H73=1; else H73=0;
+if(E74=1 and E91=1) Then H74=1; else H74=0;
+if(E75=1 and E92=1) Then H75=1; else H75=0;
+if(E76=1 and E93=1) Then H76=1; else H76=0;
+if(E77=1 and E94=1) Then H77=1; else H77=0;
+if(E78=1 and E95=1) Then H78=1; else H78=0;
+if(E79=1 and E96=1) Then H79=1; else H79=0;
+if(E80=1 and E97=1) Then H80=1; else H80=0;
+if(E81=1 and E98=1) Then H81=1; else H81=0;
+if(E82=1 and E99=1) Then H82=1; else H82=0;
+
+Run; 
+
+
+proc summary data=Casos_Prueba_ nway missing; 
+Output out=Emisoras
+SUM(F1)=NoEmp_1 
+SUM(F2)=NoEmp_2 
+SUM(F3)=NoEmp_3 
+SUM(F4)=NoEmp_4 
+SUM(F5)=NoEmp_5 
+SUM(F6)=NoEmp_6 
+SUM(F7)=NoEmp_7 
+SUM(F8)=NoEmp_8 
+SUM(F9)=NoEmp_9 
+SUM(F10)=NoEmp_10 
+SUM(F11)=NoEmp_11 
+SUM(F12)=NoEmp_12 
+SUM(F13)=NoEmp_13 
+SUM(F14)=NoEmp_14 
+SUM(F15)=NoEmp_15 
+SUM(F16)=NoEmp_16 
+SUM(F17)=NoEmp_17 
+SUM(F18)=NoEmp_18 
+SUM(F19)=NoEmp_19 
+SUM(F20)=NoEmp_20 
+SUM(F21)=NoEmp_21 
+SUM(F22)=NoEmp_22 
+SUM(F23)=NoEmp_23 
+SUM(F24)=NoEmp_24 
+SUM(F25)=NoEmp_25 
+SUM(F26)=NoEmp_26 
+SUM(F27)=NoEmp_27 
+SUM(F28)=NoEmp_28 
+SUM(F29)=NoEmp_29 
+SUM(F30)=NoEmp_30 
+SUM(F31)=NoEmp_31 
+SUM(F32)=NoEmp_32 
+SUM(F33)=NoEmp_33 
+SUM(F34)=NoEmp_34 
+SUM(F35)=NoEmp_35 
+SUM(F36)=NoEmp_36 
+SUM(F37)=NoEmp_37 
+SUM(F38)=NoEmp_38 
+SUM(F39)=NoEmp_39 
+SUM(F40)=NoEmp_40 
+SUM(F41)=NoEmp_41 
+SUM(F42)=NoEmp_42 
+SUM(F43)=NoEmp_43 
+SUM(F44)=NoEmp_44 
+SUM(F45)=NoEmp_45 
+SUM(F46)=NoEmp_46 
+SUM(F47)=NoEmp_47 
+SUM(F48)=NoEmp_48 
+SUM(F49)=NoEmp_49 
+SUM(F50)=NoEmp_50 
+SUM(F51)=NoEmp_51 
+SUM(F52)=NoEmp_52 
+SUM(F53)=NoEmp_53 
+SUM(F54)=NoEmp_54 
+SUM(F55)=NoEmp_55 
+SUM(F56)=NoEmp_56 
+SUM(F57)=NoEmp_57
+SUM(F58)=NoEmp_58
+SUM(F59)=NoEmp_59
+SUM(F60)=NoEmp_60
+SUM(F61)=NoEmp_61
+SUM(F62)=NoEmp_62
+SUM(F63)=NoEmp_63
+SUM(F64)=NoEmp_64
+SUM(F65)=NoEmp_65
+SUM(F66)=NoEmp_66
+SUM(F67)=NoEmp_67
+SUM(F68)=NoEmp_68
+SUM(F69)=NoEmp_69
+SUM(F70)=NoEmp_70
+SUM(F71)=NoEmp_71
+SUM(F72)=NoEmp_72
+SUM(F73)=NoEmp_73
+SUM(F74)=NoEmp_74
+SUM(F75)=NoEmp_75
+SUM(F76)=NoEmp_76
+SUM(F77)=NoEmp_77
+SUM(F78)=NoEmp_78
+SUM(F79)=NoEmp_79
+SUM(F80)=NoEmp_80
+SUM(F81)=NoEmp_81
+SUM(F82)=NoEmp_82
+SUM(F83)=NoEmp_83
+SUM(F84)=NoEmp_84
+SUM(F85)=NoEmp_85
+SUM(F86)=NoEmp_86
+SUM(F87)=NoEmp_87
+SUM(F88)=NoEmp_88
+SUM(F89)=NoEmp_89
+SUM(F90)=NoEmp_90
+SUM(F91)=NoEmp_91
+SUM(F92)=NoEmp_92
+SUM(F93)=NoEmp_93
+SUM(F94)=NoEmp_94
+
+
+SUM(E1)=TotEmp1 
+SUM(E2)=TotEmp2 
+SUM(E3)=TotEmp3 
+SUM(E4)=TotEmp4 
+SUM(E5)=TotEmp5 
+SUM(E6)=TotEmp6 
+SUM(E7)=TotEmp7 
+SUM(E8)=TotEmp8 
+SUM(E9)=TotEmp9 
+SUM(E10)=TotEmp10 
+SUM(E11)=TotEmp11 
+SUM(E12)=TotEmp12 
+SUM(E13)=TotEmp13 
+SUM(E14)=TotEmp14 
+SUM(E15)=TotEmp15 
+SUM(E16)=TotEmp16 
+SUM(E17)=TotEmp17 
+SUM(E18)=TotEmp18 
+SUM(E19)=TotEmp19 
+SUM(E20)=TotEmp20 
+SUM(E21)=TotEmp21 
+SUM(E22)=TotEmp22 
+SUM(E23)=TotEmp23 
+SUM(E24)=TotEmp24 
+SUM(E25)=TotEmp25 
+SUM(E26)=TotEmp26 
+SUM(E27)=TotEmp27 
+SUM(E28)=TotEmp28 
+SUM(E29)=TotEmp29 
+SUM(E30)=TotEmp30 
+SUM(E31)=TotEmp31 
+SUM(E32)=TotEmp32 
+SUM(E33)=TotEmp33 
+SUM(E34)=TotEmp34 
+SUM(E35)=TotEmp35 
+SUM(E36)=TotEmp36 
+SUM(E37)=TotEmp37 
+SUM(E38)=TotEmp38 
+SUM(E39)=TotEmp39 
+SUM(E40)=TotEmp40 
+SUM(E41)=TotEmp41 
+SUM(E42)=TotEmp42 
+SUM(E43)=TotEmp43 
+SUM(E44)=TotEmp44 
+SUM(E45)=TotEmp45 
+SUM(E46)=TotEmp46 
+SUM(E47)=TotEmp47 
+SUM(E48)=TotEmp48 
+SUM(E49)=TotEmp49 
+SUM(E50)=TotEmp50 
+SUM(E51)=TotEmp51 
+SUM(E52)=TotEmp52 
+SUM(E53)=TotEmp53 
+SUM(E54)=TotEmp54 
+SUM(E55)=TotEmp55 
+SUM(E56)=TotEmp56 
+SUM(E57)=TotEmp57 
+SUM(E58)=TotEmp58 
+SUM(E59)=TotEmp59 
+SUM(E60)=TotEmp60 
+SUM(E61)=TotEmp61 
+SUM(E62)=TotEmp62 
+SUM(E63)=TotEmp63 
+SUM(E64)=TotEmp64 
+SUM(E65)=TotEmp65 
+SUM(E66)=TotEmp66 
+SUM(E67)=TotEmp67
+SUM(E68)=TotEmp68
+SUM(E69)=TotEmp69
+SUM(E70)=TotEmp70
+SUM(E71)=TotEmp71
+SUM(E72)=TotEmp72
+SUM(E73)=TotEmp73
+SUM(E74)=TotEmp74
+SUM(E75)=TotEmp75
+SUM(E76)=TotEmp76
+SUM(E77)=TotEmp77
+SUM(E78)=TotEmp78
+SUM(E79)=TotEmp79
+SUM(E80)=TotEmp80
+SUM(E81)=TotEmp81
+SUM(E82)=TotEmp82
+SUM(E83)=TotEmp83
+SUM(E84)=TotEmp84
+SUM(E85)=TotEmp85
+SUM(E86)=TotEmp86
+SUM(E87)=TotEmp87
+SUM(E88)=TotEmp88
+SUM(E89)=TotEmp89
+SUM(E90)=TotEmp90
+SUM(E91)=TotEmp91
+SUM(E92)=TotEmp92
+SUM(E93)=TotEmp93
+SUM(E94)=TotEmp94
+SUM(E95)=TotEmp95
+SUM(E96)=TotEmp96
+SUM(E97)=TotEmp97
+SUM(E98)=TotEmp98
+SUM(E99)=TotEmp99
+
+
+SUM(G1)=G1
+SUM(G2)=G2
+SUM(G3)=G3
+SUM(G4)=G4
+SUM(G5)=G5
+SUM(G6)=G6
+SUM(G7)=G7
+SUM(G8)=G8
+SUM(G9)=G9
+SUM(G10)=G10
+SUM(G11)=G11
+SUM(G12)=G12
+SUM(G13)=G13
+SUM(G14)=G14
+SUM(G15)=G15
+SUM(G16)=G16
+SUM(G17)=G17
+SUM(G18)=G18
+SUM(G19)=G19
+SUM(G20)=G20
+SUM(G21)=G21
+SUM(G22)=G22
+SUM(G23)=G23
+SUM(G24)=G24
+SUM(G25)=G25
+SUM(G26)=G26
+SUM(G27)=G27
+SUM(G28)=G28
+SUM(G29)=G29
+SUM(G30)=G30
+SUM(G31)=G31
+SUM(G32)=G32
+SUM(G33)=G33
+SUM(G34)=G34
+SUM(G35)=G35
+SUM(G36)=G36
+SUM(G37)=G37
+SUM(G38)=G38
+SUM(G39)=G39
+SUM(G40)=G40
+SUM(G41)=G41
+SUM(G42)=G42
+SUM(G43)=G43
+SUM(G44)=G44
+SUM(G45)=G45
+SUM(G46)=G46
+SUM(G47)=G47
+SUM(G48)=G48
+SUM(G49)=G49
+SUM(G50)=G50
+SUM(G51)=G51
+SUM(G52)=G52
+SUM(G53)=G53
+SUM(G54)=G54
+SUM(G55)=G55
+SUM(G56)=G56
+SUM(G57)=G57
+SUM(G58)=G58
+SUM(G59)=G59
+SUM(G60)=G60
+SUM(G61)=G61
+SUM(G62)=G62
+SUM(G63)=G63
+SUM(G64)=G64
+SUM(G65)=G65
+SUM(G66)=G66
+SUM(G67)=G67
+SUM(G68)=G68
+SUM(G69)=G69
+SUM(G70)=G70
+SUM(G71)=G71
+SUM(G72)=G72
+SUM(G73)=G73
+SUM(G74)=G74
+SUM(G75)=G75
+SUM(G76)=G76
+SUM(G77)=G77
+SUM(G78)=G78
+SUM(G79)=G79
+SUM(G80)=G80
+SUM(G81)=G81
+SUM(G82)=G82
+SUM(G83)=G83
+SUM(G84)=G84
+SUM(G85)=G85
+SUM(G86)=G86
+SUM(G87)=G87
+SUM(G88)=G88
+
+
+
+
+SUM(H1)=H1
+SUM(H2)=H2
+SUM(H3)=H3
+SUM(H4)=H4
+SUM(H5)=H5
+SUM(H6)=H6
+SUM(H7)=H7
+SUM(H8)=H8
+SUM(H9)=H9
+SUM(H10)=H10
+SUM(H11)=H11
+SUM(H12)=H12
+SUM(H13)=H13
+SUM(H14)=H14
+SUM(H15)=H15
+SUM(H16)=H16
+SUM(H17)=H17
+SUM(H18)=H18
+SUM(H19)=H19
+SUM(H20)=H20
+SUM(H21)=H21
+SUM(H22)=H22
+SUM(H23)=H23
+SUM(H24)=H24
+SUM(H25)=H25
+SUM(H26)=H26
+SUM(H27)=H27
+SUM(H28)=H28
+SUM(H29)=H29
+SUM(H30)=H30
+SUM(H31)=H31
+SUM(H32)=H32
+SUM(H33)=H33
+SUM(H34)=H34
+SUM(H35)=H35
+SUM(H36)=H36
+SUM(H37)=H37
+SUM(H38)=H38
+SUM(H39)=H39
+SUM(H40)=H40
+SUM(H41)=H41
+SUM(H42)=H42
+SUM(H43)=H43
+SUM(H44)=H44
+SUM(H45)=H45
+SUM(H46)=H46
+SUM(H47)=H47
+SUM(H48)=H48
+SUM(H49)=H49
+SUM(H50)=H50
+SUM(H51)=H51
+SUM(H52)=H52
+SUM(H53)=H53
+SUM(H54)=H54
+SUM(H55)=H55
+SUM(H56)=H56
+SUM(H57)=H57
+SUM(H58)=H58
+SUM(H59)=H59
+SUM(H60)=H60
+SUM(H61)=H61
+SUM(H62)=H62
+SUM(H63)=H63
+SUM(H64)=H64
+SUM(H65)=H65
+SUM(H66)=H66
+SUM(H67)=H67
+SUM(H68)=H68
+SUM(H69)=H69
+SUM(H70)=H70
+SUM(H71)=H71
+SUM(H72)=H72
+SUM(H73)=H73
+SUM(H74)=H74
+SUM(H75)=H75
+SUM(H76)=H76
+SUM(H77)=H77
+SUM(H78)=H78
+SUM(H79)=H79
+SUM(H80)=H80
+SUM(H81)=H81
+SUM(H82)=H82
+
+
+;
+Class
+Emisora;
+Run;
+
+LIBNAME JEFF '/herramientas/SAS/riesgo_consumo/Nomina/jeffesro';
+proc sql;
+create table x as
+select emisora,count(emisora) as dup
+from Emisoras as A
+group by emisora
+having dup>1
+order by dup desc;
+quit;
+
+proc contents data=Emisoras;run;
+
+DATA Emisoras;
+SET Emisoras;
+/*Razón para la rotación de 6 meses*/
+RAZON_1=NoEmp_1/TotEmp1;
+RAZON_2=NoEmp_2/TotEmp2;
+RAZON_3=NoEmp_3/TotEmp3;
+RAZON_4=NoEmp_4/TotEmp4;
+RAZON_5=NoEmp_5/TotEmp5;
+RAZON_6=NoEmp_6/TotEmp6;
+RAZON_7=NoEmp_7/TotEmp7;
+RAZON_8=NoEmp_8/TotEmp8;
+RAZON_9=NoEmp_9/TotEmp9;
+RAZON_10=NoEmp_10/TotEmp10;
+RAZON_11=NoEmp_11/TotEmp11;
+RAZON_12=NoEmp_12/TotEmp12;
+RAZON_13=NoEmp_13/TotEmp13;
+RAZON_14=NoEmp_14/TotEmp14;
+RAZON_15=NoEmp_15/TotEmp15;
+RAZON_16=NoEmp_16/TotEmp16;
+RAZON_17=NoEmp_17/TotEmp17;
+RAZON_18=NoEmp_18/TotEmp18;
+RAZON_19=NoEmp_19/TotEmp19;
+RAZON_20=NoEmp_20/TotEmp20;
+RAZON_21=NoEmp_21/TotEmp21;
+RAZON_22=NoEmp_22/TotEmp22;
+RAZON_23=NoEmp_23/TotEmp23;
+RAZON_24=NoEmp_24/TotEmp24;
+RAZON_25=NoEmp_25/TotEmp25;
+RAZON_26=NoEmp_26/TotEmp26;
+RAZON_27=NoEmp_27/TotEmp27;
+RAZON_28=NoEmp_28/TotEmp28;
+RAZON_29=NoEmp_29/TotEmp29;
+RAZON_30=NoEmp_30/TotEmp30;
+RAZON_31=NoEmp_31/TotEmp31;
+RAZON_32=NoEmp_32/TotEmp32;
+RAZON_33=NoEmp_33/TotEmp33;
+RAZON_34=NoEmp_34/TotEmp34;
+RAZON_35=NoEmp_35/TotEmp35;
+RAZON_36=NoEmp_36/TotEmp36;
+RAZON_37=NoEmp_37/TotEmp37;
+RAZON_38=NoEmp_38/TotEmp38;
+RAZON_39=NoEmp_39/TotEmp39;
+RAZON_40=NoEmp_40/TotEmp40;
+RAZON_41=NoEmp_41/TotEmp41;
+RAZON_42=NoEmp_42/TotEmp42;
+RAZON_43=NoEmp_43/TotEmp43;
+RAZON_44=NoEmp_44/TotEmp44;
+RAZON_45=NoEmp_45/TotEmp45;
+RAZON_46=NoEmp_46/TotEmp46;
+RAZON_47=NoEmp_47/TotEmp47;
+RAZON_48=NoEmp_48/TotEmp48;
+RAZON_49=NoEmp_49/TotEmp49;
+RAZON_50=NoEmp_50/TotEmp50;
+RAZON_51=NoEmp_51/TotEmp51;
+RAZON_52=NoEmp_52/TotEmp52;
+RAZON_53=NoEmp_53/TotEmp53;
+RAZON_54=NoEmp_54/TotEmp54;
+RAZON_55=NoEmp_55/TotEmp55;
+RAZON_56=NoEmp_56/TotEmp56;
+RAZON_57=NoEmp_57/TotEmp57;
+RAZON_58=NoEmp_58/TotEmp58;
+RAZON_59=NoEmp_59/TotEmp59;
+RAZON_60=NoEmp_60/TotEmp60;
+RAZON_61=NoEmp_61/TotEmp61;
+RAZON_62=NoEmp_62/TotEmp62;
+RAZON_63=NoEmp_63/TotEmp63;
+RAZON_64=NoEmp_64/TotEmp64;
+RAZON_65=NoEmp_65/TotEmp65;
+RAZON_66=NoEmp_66/TotEmp66;
+RAZON_67=NoEmp_67/TotEmp67;
+RAZON_68=NoEmp_68/TotEmp68;
+RAZON_69=NoEmp_69/TotEmp69;
+RAZON_70=NoEmp_70/TotEmp70;
+RAZON_71=NoEmp_71/TotEmp71;
+RAZON_72=NoEmp_72/TotEmp72;
+RAZON_73=NoEmp_73/TotEmp73;
+RAZON_74=NoEmp_74/TotEmp74;
+RAZON_75=NoEmp_75/TotEmp75;
+RAZON_76=NoEmp_76/TotEmp76;
+RAZON_77=NoEmp_77/TotEmp77;
+RAZON_78=NoEmp_78/TotEmp78;
+RAZON_79=NoEmp_79/TotEmp79;
+RAZON_80=NoEmp_80/TotEmp80;
+RAZON_81=NoEmp_81/TotEmp81;
+RAZON_82=NoEmp_82/TotEmp82;
+RAZON_83=NoEmp_83/TotEmp83;
+RAZON_84=NoEmp_84/TotEmp84;
+RAZON_85=NoEmp_85/TotEmp85;
+RAZON_86=NoEmp_86/TotEmp86;
+RAZON_87=NoEmp_87/TotEmp87;
+RAZON_88=NoEmp_88/TotEmp88;
+RAZON_89=NoEmp_89/TotEmp89;
+RAZON_90=NoEmp_90/TotEmp91;
+RAZON_91=NoEmp_91/TotEmp91;
+RAZON_92=NoEmp_92/TotEmp92;
+RAZON_93=NoEmp_93/TotEmp93;
+RAZON_94=NoEmp_94/TotEmp94;
+
+
+/*Dispersan 6 meses, y despues siguen dispersando 6 meses*/
+
+Razon_6_1=G1/NoEmp_1;
+Razon_6_2=G2/NoEmp_2;
+Razon_6_3=G3/NoEmp_3;
+Razon_6_4=G4/NoEmp_4;
+Razon_6_5=G5/NoEmp_5;
+Razon_6_6=G6/NoEmp_6;
+Razon_6_7=G7/NoEmp_7;
+Razon_6_8=G8/NoEmp_8;
+Razon_6_9=G9/NoEmp_9;
+Razon_6_10=G10/NoEmp_10;
+Razon_6_11=G11/NoEmp_11;
+Razon_6_12=G12/NoEmp_12;
+Razon_6_13=G13/NoEmp_13;
+Razon_6_14=G14/NoEmp_14;
+Razon_6_15=G15/NoEmp_15;
+Razon_6_16=G16/NoEmp_16;
+Razon_6_17=G17/NoEmp_17;
+Razon_6_18=G18/NoEmp_18;
+Razon_6_19=G19/NoEmp_19;
+Razon_6_20=G20/NoEmp_20;
+Razon_6_21=G21/NoEmp_21;
+Razon_6_22=G22/NoEmp_22;
+Razon_6_23=G23/NoEmp_23;
+Razon_6_24=G24/NoEmp_24;
+Razon_6_25=G25/NoEmp_25;
+Razon_6_26=G26/NoEmp_26;
+Razon_6_27=G27/NoEmp_27;
+Razon_6_28=G28/NoEmp_28;
+Razon_6_29=G29/NoEmp_29;
+Razon_6_30=G30/NoEmp_30;
+Razon_6_31=G31/NoEmp_31;
+Razon_6_32=G32/NoEmp_32;
+Razon_6_33=G33/NoEmp_33;
+Razon_6_34=G34/NoEmp_34;
+Razon_6_35=G35/NoEmp_35;
+Razon_6_36=G36/NoEmp_36;
+Razon_6_37=G37/NoEmp_37;
+Razon_6_38=G38/NoEmp_38;
+Razon_6_39=G39/NoEmp_39;
+Razon_6_40=G40/NoEmp_40;
+Razon_6_41=G41/NoEmp_41;
+Razon_6_42=G42/NoEmp_42;
+Razon_6_43=G43/NoEmp_43;
+Razon_6_44=G44/NoEmp_44;
+Razon_6_45=G45/NoEmp_45;
+Razon_6_46=G46/NoEmp_46;
+Razon_6_47=G47/NoEmp_47;
+Razon_6_48=G48/NoEmp_48;
+Razon_6_49=G49/NoEmp_49;
+Razon_6_50=G50/NoEmp_50;
+Razon_6_51=G51/NoEmp_51;
+Razon_6_52=G52/NoEmp_52;
+Razon_6_53=G53/NoEmp_53;
+Razon_6_54=G54/NoEmp_54;
+Razon_6_55=G55/NoEmp_55;
+Razon_6_56=G56/NoEmp_56;
+Razon_6_57=G57/NoEmp_57;
+Razon_6_58=G58/NoEmp_58;
+Razon_6_59=G59/NoEmp_59;
+Razon_6_60=G60/NoEmp_60;
+Razon_6_61=G61/NoEmp_61;
+Razon_6_62=G62/NoEmp_62;
+Razon_6_63=G63/NoEmp_63;
+Razon_6_64=G64/NoEmp_64;
+Razon_6_65=G65/NoEmp_65;
+Razon_6_66=G66/NoEmp_66;
+Razon_6_67=G67/NoEmp_67;
+Razon_6_68=G68/NoEmp_68;
+Razon_6_69=G69/NoEmp_69;
+Razon_6_70=G70/NoEmp_70;
+Razon_6_71=G71/NoEmp_71;
+Razon_6_72=G72/NoEmp_72;
+Razon_6_73=G73/NoEmp_73;
+Razon_6_74=G74/NoEmp_74;
+Razon_6_75=G75/NoEmp_75;
+Razon_6_76=G76/NoEmp_76;
+Razon_6_77=G77/NoEmp_77;
+Razon_6_78=G78/NoEmp_78;
+Razon_6_79=G79/NoEmp_79;
+Razon_6_80=G80/NoEmp_80;
+Razon_6_81=G81/NoEmp_81;
+Razon_6_82=G82/NoEmp_82;
+Razon_6_83=G83/NoEmp_83;
+Razon_6_84=G84/NoEmp_84;
+Razon_6_85=G85/NoEmp_85;
+Razon_6_86=G86/NoEmp_86;
+Razon_6_87=G87/NoEmp_87;
+Razon_6_88=G88/NoEmp_88;
+
+
+/*Dispersan 6 meses, y despues siguen dispersando 12 meses*/
+
+Razon_12_1=H1/NoEmp_1;
+Razon_12_2=H2/NoEmp_2;
+Razon_12_3=H3/NoEmp_3;
+Razon_12_4=H4/NoEmp_4;
+Razon_12_5=H5/NoEmp_5;
+Razon_12_6=H6/NoEmp_6;
+Razon_12_7=H7/NoEmp_7;
+Razon_12_8=H8/NoEmp_8;
+Razon_12_9=H9/NoEmp_9;
+Razon_12_10=H10/NoEmp_10;
+Razon_12_11=H11/NoEmp_11;
+Razon_12_12=H12/NoEmp_12;
+Razon_12_13=H13/NoEmp_13;
+Razon_12_14=H14/NoEmp_14;
+Razon_12_15=H15/NoEmp_15;
+Razon_12_16=H16/NoEmp_16;
+Razon_12_17=H17/NoEmp_17;
+Razon_12_18=H18/NoEmp_18;
+Razon_12_19=H19/NoEmp_19;
+Razon_12_20=H20/NoEmp_20;
+Razon_12_21=H21/NoEmp_21;
+Razon_12_22=H22/NoEmp_22;
+Razon_12_23=H23/NoEmp_23;
+Razon_12_24=H24/NoEmp_24;
+Razon_12_25=H25/NoEmp_25;
+Razon_12_26=H26/NoEmp_26;
+Razon_12_27=H27/NoEmp_27;
+Razon_12_28=H28/NoEmp_28;
+Razon_12_29=H29/NoEmp_29;
+Razon_12_30=H30/NoEmp_30;
+Razon_12_31=H31/NoEmp_31;
+Razon_12_32=H32/NoEmp_32;
+Razon_12_33=H33/NoEmp_33;
+Razon_12_34=H34/NoEmp_34;
+Razon_12_35=H35/NoEmp_35;
+Razon_12_36=H36/NoEmp_36;
+Razon_12_37=H37/NoEmp_37;
+Razon_12_38=H38/NoEmp_38;
+Razon_12_39=H39/NoEmp_39;
+Razon_12_40=H40/NoEmp_40;
+Razon_12_41=H41/NoEmp_41;
+Razon_12_42=H42/NoEmp_42;
+Razon_12_43=H43/NoEmp_43;
+Razon_12_44=H44/NoEmp_44;
+Razon_12_45=H45/NoEmp_45;
+Razon_12_46=H46/NoEmp_46;
+Razon_12_47=H47/NoEmp_47;
+Razon_12_48=H48/NoEmp_48;
+Razon_12_49=H49/NoEmp_49;
+Razon_12_50=H50/NoEmp_50;
+Razon_12_51=H51/NoEmp_51;
+Razon_12_52=H52/NoEmp_52;
+Razon_12_53=H53/NoEmp_53;
+Razon_12_54=H54/NoEmp_54;
+Razon_12_55=H55/NoEmp_55;
+Razon_12_56=H56/NoEmp_56;
+Razon_12_57=H57/NoEmp_57;
+Razon_12_58=H58/NoEmp_58;
+Razon_12_59=H59/NoEmp_59;
+Razon_12_60=H60/NoEmp_60;
+Razon_12_61=H61/NoEmp_61;
+Razon_12_62=H62/NoEmp_62;
+Razon_12_63=H63/NoEmp_63;
+Razon_12_64=H64/NoEmp_64;
+Razon_12_65=H65/NoEmp_65;
+Razon_12_66=H66/NoEmp_66;
+Razon_12_67=H67/NoEmp_67;
+Razon_12_68=H68/NoEmp_68;
+Razon_12_69=H69/NoEmp_69;
+Razon_12_70=H70/NoEmp_70;
+Razon_12_71=H71/NoEmp_71;
+Razon_12_72=H72/NoEmp_72;
+Razon_12_73=H73/NoEmp_73;
+Razon_12_74=H74/NoEmp_74;
+Razon_12_75=H75/NoEmp_75;
+Razon_12_76=H76/NoEmp_76;
+Razon_12_77=H77/NoEmp_77;
+Razon_12_78=H78/NoEmp_78;
+Razon_12_79=H79/NoEmp_79;
+Razon_12_80=H80/NoEmp_80;
+Razon_12_81=H81/NoEmp_81;
+Razon_12_82=H82/NoEmp_82;
+
+RUN;
+
+
+/*La guardamos en la libreria de Rotacion*/
+
+data ROTACION_1;
+   set  Emisoras (keep=emisora razon_1--razon_94);
+Run;
+
+
+Proc transpose data=ROTACION_1 out=ROTACION_1;by emisora;run;
+
+
+data ROTACION_1 (drop=_NAME_ rename=(COL1=IR_1));
+	set ROTACION_1;
+	format MTH yymmdd10.;
+If (_NAME_="RAZON_1") then MTH='01Jan2012'd;
+If (_NAME_="RAZON_2") then MTH='01Feb2012'd;
+If (_NAME_="RAZON_3") then MTH='01Mar2012'd;
+If (_NAME_="RAZON_4") then MTH='01Apr2012'd;
+If (_NAME_="RAZON_5") then MTH='01May2012'd;
+If (_NAME_="RAZON_6") then MTH='01Jun2012'd;
+If (_NAME_="RAZON_7") then MTH='01Jul2012'd;
+If (_NAME_="RAZON_8") then MTH='01Aug2012'd;
+If (_NAME_="RAZON_9") then MTH='01Sep2012'd;
+If (_NAME_="RAZON_10") then MTH='01Oct2012'd;
+If (_NAME_="RAZON_11") then MTH='01Nov2012'd;
+If (_NAME_="RAZON_12") then MTH='01Dec2012'd;
+If (_NAME_="RAZON_13") then MTH='01Jan2013'd;
+If (_NAME_="RAZON_14") then MTH='01Feb2013'd;
+If (_NAME_="RAZON_15") then MTH='01Mar2013'd;
+If (_NAME_="RAZON_16") then MTH='01Apr2013'd;
+If (_NAME_="RAZON_17") then MTH='01May2013'd;
+If (_NAME_="RAZON_18") then MTH='01Jun2013'd;
+If (_NAME_="RAZON_19") then MTH='01Jul2013'd;
+If (_NAME_="RAZON_20") then MTH='01Aug2013'd;
+If (_NAME_="RAZON_21") then MTH='01Sep2013'd;
+If (_NAME_="RAZON_22") then MTH='01Oct2013'd;
+If (_NAME_="RAZON_23") then MTH='01Nov2013'd;
+If (_NAME_="RAZON_24") then MTH='01Dec2013'd;
+If (_NAME_="RAZON_25") then MTH='01Jan2014'd;
+If (_NAME_="RAZON_26") then MTH='01Feb2014'd;
+If (_NAME_="RAZON_27") then MTH='01Mar2014'd;
+If (_NAME_="RAZON_28") then MTH='01Apr2014'd;
+If (_NAME_="RAZON_29") then MTH='01May2014'd;
+If (_NAME_="RAZON_30") then MTH='01Jun2014'd;
+If (_NAME_="RAZON_31") then MTH='01Jul2014'd;
+If (_NAME_="RAZON_32") then MTH='01Aug2014'd;
+If (_NAME_="RAZON_33") then MTH='01Sep2014'd;
+If (_NAME_="RAZON_34") then MTH='01Oct2014'd;
+If (_NAME_="RAZON_35") then MTH='01Nov2014'd;
+If (_NAME_="RAZON_36") then MTH='01Dec2014'd;
+If (_NAME_="RAZON_37") then MTH='01Jan2015'd;
+If (_NAME_="RAZON_38") then MTH='01Feb2015'd;
+If (_NAME_="RAZON_39") then MTH='01Mar2015'd;
+If (_NAME_="RAZON_40") then MTH='01Apr2015'd;
+If (_NAME_="RAZON_41") then MTH='01May2015'd;
+If (_NAME_="RAZON_42") then MTH='01Jun2015'd;
+If (_NAME_="RAZON_43") then MTH='01Jul2015'd;
+If (_NAME_="RAZON_44") then MTH='01Aug2015'd;
+If (_NAME_="RAZON_45") then MTH='01Sep2015'd;
+If (_NAME_="RAZON_46") then MTH='01Oct2015'd;
+If (_NAME_="RAZON_47") then MTH='01Nov2015'd;
+If (_NAME_="RAZON_48") then MTH='01Dec2015'd;
+If (_NAME_="RAZON_49") then MTH='01Jan2016'd;
+If (_NAME_="RAZON_50") then MTH='01Feb2016'd;
+If (_NAME_="RAZON_51") then MTH='01Mar2016'd;
+If (_NAME_="RAZON_52") then MTH='01Apr2016'd;
+If (_NAME_="RAZON_53") then MTH='01May2016'd;
+If (_NAME_="RAZON_54") then MTH='01Jun2016'd;
+If (_NAME_="RAZON_55") then MTH='01Jul2016'd;
+If (_NAME_="RAZON_56") then MTH='01Aug2016'd;
+If (_NAME_="RAZON_57") then MTH='01Sep2016'd;
+If (_NAME_="RAZON_58") then MTH='01Oct2016'd;
+If (_NAME_="RAZON_59") then MTH='01Nov2016'd;
+If (_NAME_="RAZON_60") then MTH='01Dec2016'd;
+If (_NAME_="RAZON_61") then MTH='01Jan2017'd;
+If (_NAME_="RAZON_62") then MTH='01Feb2017'd;
+If (_NAME_="RAZON_63") then MTH='01Mar2017'd;
+If (_NAME_="RAZON_64") then MTH='01Apr2017'd;
+If (_NAME_="RAZON_65") then MTH='01May2017'd;
+If (_NAME_="RAZON_66") then MTH='01Jun2017'd;
+If (_NAME_="RAZON_67") then MTH='01Jul2017'd;
+If (_NAME_="RAZON_68") then MTH='01Aug2017'd;
+If (_NAME_="RAZON_69") then MTH='01Sep2017'd;
+If (_NAME_="RAZON_70") then MTH='01Oct2017'd;
+If (_NAME_="RAZON_71") then MTH='01Nov2017'd;
+If (_NAME_="RAZON_72") then MTH='01Dec2017'd;
+If (_NAME_="RAZON_73") then MTH='01Jan2018'd;
+If (_NAME_="RAZON_74") then MTH='01Feb2018'd;
+If (_NAME_="RAZON_75") then MTH='01Mar2018'd;
+If (_NAME_="RAZON_76") then MTH='01Apr2018'd;
+If (_NAME_="RAZON_77") then MTH='01May2018'd;
+If (_NAME_="RAZON_78") then MTH='01Jun2018'd;
+If (_NAME_="RAZON_79") then MTH='01Jul2018'd;
+If (_NAME_="RAZON_80") then MTH='01Aug2018'd;
+If (_NAME_="RAZON_81") then MTH='01Sep2018'd;
+If (_NAME_="RAZON_82") then MTH='01Oct2018'd;
+If (_NAME_="RAZON_83") then MTH='01Nov2018'd;
+If (_NAME_="RAZON_84") then MTH='01Dec2018'd;
+If (_NAME_="RAZON_85") then MTH='01Jan2019'd;
+If (_NAME_="RAZON_86") then MTH='01Feb2019'd;
+If (_NAME_="RAZON_87") then MTH='01Mar2019'd;
+If (_NAME_="RAZON_88") then MTH='01Apr2019'd;
+If (_NAME_="RAZON_89") then MTH='01May2019'd;
+If (_NAME_="RAZON_90") then MTH='01Jun2019'd;
+If (_NAME_="RAZON_91") then MTH='01Jul2019'd;
+If (_NAME_="RAZON_92") then MTH='01Aug2019'd;
+If (_NAME_="RAZON_93") then MTH='01Sep2019'd;
+If (_NAME_="RAZON_94") then MTH='01Oct2019'd;
+
+run;
+
+proc sql;
+create table x as
+select emisora,count(emisora) as dup
+from ROTACION_1 as A
+group by emisora,mth
+having dup>1
+order by dup desc;
+quit;
+
+/*Para los que tienen 6 meses dispersando despues de los primeros 6*/
+
+proc contents data=Emisoras;run;
+
+data ROTACION_2;
+   set  Emisoras (keep=emisora Razon_6_1--Razon_6_88);
+Run;
+
+
+Proc transpose data=ROTACION_2 out=ROTACION_2;by emisora;run;
+
+
+data ROTACION_2 (drop=_NAME_ rename=(COL1=IR_2));
+	set ROTACION_2;
+	format MTH yymmdd10.;
+If (_NAME_="Razon_6_1") then MTH='01Jan2012'd;
+If (_NAME_="Razon_6_2") then MTH='01Feb2012'd;
+If (_NAME_="Razon_6_3") then MTH='01Mar2012'd;
+If (_NAME_="Razon_6_4") then MTH='01Apr2012'd;
+If (_NAME_="Razon_6_5") then MTH='01May2012'd;
+If (_NAME_="Razon_6_6") then MTH='01Jun2012'd;
+If (_NAME_="Razon_6_7") then MTH='01Jul2012'd;
+If (_NAME_="Razon_6_8") then MTH='01Aug2012'd;
+If (_NAME_="Razon_6_9") then MTH='01Sep2012'd;
+If (_NAME_="Razon_6_10") then MTH='01Oct2012'd;
+If (_NAME_="Razon_6_11") then MTH='01Nov2012'd;
+If (_NAME_="Razon_6_12") then MTH='01Dec2012'd;
+If (_NAME_="Razon_6_13") then MTH='01Jan2013'd;
+If (_NAME_="Razon_6_14") then MTH='01Feb2013'd;
+If (_NAME_="Razon_6_15") then MTH='01Mar2013'd;
+If (_NAME_="Razon_6_16") then MTH='01Apr2013'd;
+If (_NAME_="Razon_6_17") then MTH='01May2013'd;
+If (_NAME_="Razon_6_18") then MTH='01Jun2013'd;
+If (_NAME_="Razon_6_19") then MTH='01Jul2013'd;
+If (_NAME_="Razon_6_20") then MTH='01Aug2013'd;
+If (_NAME_="Razon_6_21") then MTH='01Sep2013'd;
+If (_NAME_="Razon_6_22") then MTH='01Oct2013'd;
+If (_NAME_="Razon_6_23") then MTH='01Nov2013'd;
+If (_NAME_="Razon_6_24") then MTH='01Dec2013'd;
+If (_NAME_="Razon_6_25") then MTH='01Jan2014'd;
+If (_NAME_="Razon_6_26") then MTH='01Feb2014'd;
+If (_NAME_="Razon_6_27") then MTH='01Mar2014'd;
+If (_NAME_="Razon_6_28") then MTH='01Apr2014'd;
+If (_NAME_="Razon_6_29") then MTH='01May2014'd;
+If (_NAME_="Razon_6_30") then MTH='01Jun2014'd;
+If (_NAME_="Razon_6_31") then MTH='01Jul2014'd;
+If (_NAME_="Razon_6_32") then MTH='01Aug2014'd;
+If (_NAME_="Razon_6_33") then MTH='01Sep2014'd;
+If (_NAME_="Razon_6_34") then MTH='01Oct2014'd;
+If (_NAME_="Razon_6_35") then MTH='01Nov2014'd;
+If (_NAME_="Razon_6_36") then MTH='01Dec2014'd;
+If (_NAME_="Razon_6_37") then MTH='01Jan2015'd;
+If (_NAME_="Razon_6_38") then MTH='01Feb2015'd;
+If (_NAME_="Razon_6_39") then MTH='01Mar2015'd;
+If (_NAME_="Razon_6_40") then MTH='01Apr2015'd;
+If (_NAME_="Razon_6_41") then MTH='01May2015'd;
+If (_NAME_="Razon_6_42") then MTH='01Jun2015'd;
+If (_NAME_="Razon_6_43") then MTH='01Jul2015'd;
+If (_NAME_="Razon_6_44") then MTH='01Aug2015'd;
+If (_NAME_="Razon_6_45") then MTH='01Sep2015'd;
+If (_NAME_="Razon_6_46") then MTH='01Oct2015'd;
+If (_NAME_="Razon_6_47") then MTH='01Nov2015'd;
+If (_NAME_="Razon_6_48") then MTH='01Dec2015'd;
+If (_NAME_="Razon_6_49") then MTH='01Jan2016'd;
+If (_NAME_="Razon_6_50") then MTH='01Feb2016'd;
+If (_NAME_="Razon_6_51") then MTH='01Mar2016'd;
+If (_NAME_="Razon_6_52") then MTH='01Apr2016'd;
+If (_NAME_="Razon_6_53") then MTH='01May2016'd;
+If (_NAME_="Razon_6_54") then MTH='01Jun2016'd;
+If (_NAME_="Razon_6_55") then MTH='01Jul2016'd;
+If (_NAME_="Razon_6_56") then MTH='01Aug2016'd;
+If (_NAME_="Razon_6_57") then MTH='01Sep2016'd;
+If (_NAME_="Razon_6_58") then MTH='01Oct2016'd;
+If (_NAME_="Razon_6_59") then MTH='01Nov2016'd;
+If (_NAME_="Razon_6_60") then MTH='01Dec2016'd;
+If (_NAME_="Razon_6_61") then MTH='01Jan2017'd;
+If (_NAME_="Razon_6_62") then MTH='01Feb2017'd;
+If (_NAME_="Razon_6_63") then MTH='01Mar2017'd;
+If (_NAME_="Razon_6_64") then MTH='01Apr2017'd;
+If (_NAME_="Razon_6_65") then MTH='01May2017'd;
+If (_NAME_="Razon_6_66") then MTH='01Jun2017'd;
+If (_NAME_="Razon_6_67") then MTH='01Jul2017'd;
+If (_NAME_="Razon_6_68") then MTH='01Aug2017'd;
+If (_NAME_="Razon_6_69") then MTH='01Sep2017'd;
+If (_NAME_="Razon_6_70") then MTH='01Oct2017'd;
+If (_NAME_="Razon_6_71") then MTH='01Nov2017'd;
+If (_NAME_="Razon_6_72") then MTH='01Dec2017'd;
+If (_NAME_="Razon_6_73") then MTH='01Jan2018'd;
+If (_NAME_="Razon_6_74") then MTH='01Feb2018'd;
+If (_NAME_="Razon_6_75") then MTH='01Mar2018'd;
+If (_NAME_="Razon_6_76") then MTH='01Apr2018'd;
+If (_NAME_="Razon_6_77") then MTH='01May2018'd;
+If (_NAME_="Razon_6_78") then MTH='01Jun2018'd;
+If (_NAME_="Razon_6_79") then MTH='01Jul2018'd;
+If (_NAME_="Razon_6_80") then MTH='01Aug2018'd;
+If (_NAME_="Razon_6_81") then MTH='01Sep2018'd;
+If (_NAME_="Razon_6_82") then MTH='01Oct2018'd;
+If (_NAME_="Razon_6_83") then MTH='01Nov2018'd;
+If (_NAME_="Razon_6_84") then MTH='01Dec2018'd;
+If (_NAME_="Razon_6_85") then MTH='01Jan2019'd;
+If (_NAME_="Razon_6_86") then MTH='01Feb2019'd;
+If (_NAME_="Razon_6_87") then MTH='01Mar2019'd;
+If (_NAME_="Razon_6_88") then MTH='01Apr2019'd;
+
+
+run;
+
+proc sql;
+create table x as
+select emisora,count(emisora) as dup
+from ROTACION_2 as A
+group by emisora,mth
+having dup>1
+order by dup desc;
+quit;
+
+
+
+/*Para los que tienen 12 meses dispersando despues de los primeros 6*/
+
+proc contents data=Emisoras;run;
+
+data ROTACION_3;
+   set  Emisoras (keep=emisora Razon_12_1--Razon_12_82);
+Run;
+
+
+Proc transpose data=ROTACION_3 out=ROTACION_3;by emisora;run;
+
+
+data ROTACION_3 (drop=_NAME_ rename=(COL1=IR_3));
+	set ROTACION_3;
+	format MTH yymmdd10.;
+If (_NAME_="Razon_12_1") then MTH='01Jan2012'd;
+If (_NAME_="Razon_12_2") then MTH='01Feb2012'd;
+If (_NAME_="Razon_12_3") then MTH='01Mar2012'd;
+If (_NAME_="Razon_12_4") then MTH='01Apr2012'd;
+If (_NAME_="Razon_12_5") then MTH='01May2012'd;
+If (_NAME_="Razon_12_6") then MTH='01Jun2012'd;
+If (_NAME_="Razon_12_7") then MTH='01Jul2012'd;
+If (_NAME_="Razon_12_8") then MTH='01Aug2012'd;
+If (_NAME_="Razon_12_9") then MTH='01Sep2012'd;
+If (_NAME_="Razon_12_10") then MTH='01Oct2012'd;
+If (_NAME_="Razon_12_11") then MTH='01Nov2012'd;
+If (_NAME_="Razon_12_12") then MTH='01Dec2012'd;
+If (_NAME_="Razon_12_13") then MTH='01Jan2013'd;
+If (_NAME_="Razon_12_14") then MTH='01Feb2013'd;
+If (_NAME_="Razon_12_15") then MTH='01Mar2013'd;
+If (_NAME_="Razon_12_16") then MTH='01Apr2013'd;
+If (_NAME_="Razon_12_17") then MTH='01May2013'd;
+If (_NAME_="Razon_12_18") then MTH='01Jun2013'd;
+If (_NAME_="Razon_12_19") then MTH='01Jul2013'd;
+If (_NAME_="Razon_12_20") then MTH='01Aug2013'd;
+If (_NAME_="Razon_12_21") then MTH='01Sep2013'd;
+If (_NAME_="Razon_12_22") then MTH='01Oct2013'd;
+If (_NAME_="Razon_12_23") then MTH='01Nov2013'd;
+If (_NAME_="Razon_12_24") then MTH='01Dec2013'd;
+If (_NAME_="Razon_12_25") then MTH='01Jan2014'd;
+If (_NAME_="Razon_12_26") then MTH='01Feb2014'd;
+If (_NAME_="Razon_12_27") then MTH='01Mar2014'd;
+If (_NAME_="Razon_12_28") then MTH='01Apr2014'd;
+If (_NAME_="Razon_12_29") then MTH='01May2014'd;
+If (_NAME_="Razon_12_30") then MTH='01Jun2014'd;
+If (_NAME_="Razon_12_31") then MTH='01Jul2014'd;
+If (_NAME_="Razon_12_32") then MTH='01Aug2014'd;
+If (_NAME_="Razon_12_33") then MTH='01Sep2014'd;
+If (_NAME_="Razon_12_34") then MTH='01Oct2014'd;
+If (_NAME_="Razon_12_35") then MTH='01Nov2014'd;
+If (_NAME_="Razon_12_36") then MTH='01Dec2014'd;
+If (_NAME_="Razon_12_37") then MTH='01Jan2015'd;
+If (_NAME_="Razon_12_38") then MTH='01Feb2015'd;
+If (_NAME_="Razon_12_39") then MTH='01Mar2015'd;
+If (_NAME_="Razon_12_40") then MTH='01Apr2015'd;
+If (_NAME_="Razon_12_41") then MTH='01May2015'd;
+If (_NAME_="Razon_12_42") then MTH='01Jun2015'd;
+If (_NAME_="Razon_12_43") then MTH='01Jul2015'd;
+If (_NAME_="Razon_12_44") then MTH='01Aug2015'd;
+If (_NAME_="Razon_12_45") then MTH='01Sep2015'd;
+If (_NAME_="Razon_12_46") then MTH='01Oct2015'd;
+If (_NAME_="Razon_12_47") then MTH='01Nov2015'd;
+If (_NAME_="Razon_12_48") then MTH='01Dec2015'd;
+If (_NAME_="Razon_12_49") then MTH='01Jan2016'd;
+If (_NAME_="Razon_12_50") then MTH='01Feb2016'd;
+If (_NAME_="Razon_12_51") then MTH='01Mar2016'd;
+If (_NAME_="Razon_12_52") then MTH='01Apr2016'd;
+If (_NAME_="Razon_12_53") then MTH='01May2016'd;
+If (_NAME_="Razon_12_54") then MTH='01Jun2016'd;
+If (_NAME_="Razon_12_55") then MTH='01Jul2016'd;
+If (_NAME_="Razon_12_56") then MTH='01Aug2016'd;
+If (_NAME_="Razon_12_57") then MTH='01Sep2016'd;
+If (_NAME_="Razon_12_58") then MTH='01Oct2016'd;
+If (_NAME_="Razon_12_59") then MTH='01Nov2016'd;
+If (_NAME_="Razon_12_60") then MTH='01Dec2016'd;
+If (_NAME_="Razon_12_61") then MTH='01Jan2017'd;
+If (_NAME_="Razon_12_62") then MTH='01Feb2017'd;
+If (_NAME_="Razon_12_63") then MTH='01Mar2017'd;
+If (_NAME_="Razon_12_64") then MTH='01Apr2017'd;
+If (_NAME_="Razon_12_65") then MTH='01May2017'd;
+If (_NAME_="Razon_12_66") then MTH='01Jun2017'd;
+If (_NAME_="Razon_12_67") then MTH='01Jul2017'd;
+If (_NAME_="Razon_12_68") then MTH='01Aug2017'd;
+If (_NAME_="Razon_12_69") then MTH='01Sep2017'd;
+If (_NAME_="Razon_12_70") then MTH='01Oct2017'd;
+If (_NAME_="Razon_12_71") then MTH='01Nov2017'd;
+If (_NAME_="Razon_12_72") then MTH='01Dec2017'd;
+If (_NAME_="Razon_12_73") then MTH='01Jan2018'd;
+If (_NAME_="Razon_12_74") then MTH='01Feb2018'd;
+If (_NAME_="Razon_12_75") then MTH='01Mar2018'd;
+If (_NAME_="Razon_12_76") then MTH='01Apr2018'd;
+If (_NAME_="Razon_12_77") then MTH='01May2018'd;
+If (_NAME_="Razon_12_78") then MTH='01Jun2018'd;
+If (_NAME_="Razon_12_79") then MTH='01Jul2018'd;
+If (_NAME_="Razon_12_80") then MTH='01Aug2018'd;
+If (_NAME_="Razon_12_81") then MTH='01Sep2018'd;
+If (_NAME_="Razon_12_82") then MTH='01Oct2018'd;
+
+
+run;
+
+proc sql;
+create table x as
+select emisora,count(emisora) as dup
+from ROTACION_3 as A
+group by emisora,mth
+having dup>1
+order by dup desc;
+quit;
+
+/*Unimos las tres bases*/
+
+proc sort data=ROTACION_1; by emisora mth; run;
+proc sort data=ROTACION_2; by emisora mth; run;
+proc sort data=ROTACION_3; by emisora mth; run;
+
+%put _user_;
+
+DATA ROTACION;
+Merge ROTACION_1 (IN=A)
+      ROTACION_2 (IN=B)
+	  ROTACION_3 (IN=C)
+;
+BY Emisora MTH;
+Run;
+
+proc sql;
+create table ROTACION AS
+SELECT 
+Emisora,
+MTH,
+IR_1,
+IR_2,
+IR_3
+FROM ROTACION;
+QUIT;
+
+proc sort data=ROTACION; by emisora mth; run;
+
+data ARota.ROTACION_202003;
+set ROTACION;
+Run;
+
+proc freq data=ARota.ROTACION_20203; table mth/nocol nocum norow nopercent missing; run; 
